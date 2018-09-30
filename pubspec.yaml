@@ -1,13 +1,13 @@
 name: flutter_dialogflow
 description: The flutter_dialogflow makes it easy to integrate dialogflow
-version: 0.0.1
+version: 0.1.0
 author: Victor Alfonso Rodas Oña <victordevcode@gmail.com>
 homepage: https://github.com/VictorRancesCode/flutter_dialogflow
 
 dependencies:
   flutter:
     sdk: flutter
-  http: ^0.11.3+16
+  http: ^0.11.3+17
 
 dev_dependencies:
   flutter_test:
@@ -50,4 +50,4 @@ flutter:
   # For details regarding fonts in packages, see
   # https://flutter.io/custom-fonts/#from-packages
 environment:
-    sdk: ">=1.8.0 <2.0.0"
+    sdk: '>=1.20.1 <3.0.0'
