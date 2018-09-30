@@ -13,7 +13,7 @@ A new Flutter package.
 * Add this to your package's pubspec.yaml file:
 ```
 dependencies:
-  flutter_dialogflow: "^0.0.1"
+  flutter_dialogflow: "^0.1.0"
 ```
 * You can install packages from the command line:
   with Flutter:
@@ -38,7 +38,7 @@ $ flutter packages get
 * Example
 ```
   void Response(query) async {
-    Dialogflow dialogflow = Dialogflow(token: "10178f9cb6cf12321asdf4aae75c87cd");
+    Dialogflow dialogflow = Dialogflow(token: "Your token goes here");
     AIResponse response = await dialogflow.sendQuery(query);
     print(response.getMessageResponse());
   }
