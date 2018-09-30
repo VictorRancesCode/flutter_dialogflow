@@ -265,7 +265,7 @@ class Dialogflow {
 
   String _getUrl(query) {
     return "https://api.dialogflow.com/v1/query?v=$version&contexts=$query"
-        "&lang=es&query=$query&lang=$language&sessionId=$sessionId&timezone=$timezone";
+        "&query=$query&lang=$language&sessionId=$sessionId&timezone=$timezone";
   }
 
   Future<AIResponse> sendQuery(query) async {
