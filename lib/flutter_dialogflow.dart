@@ -264,8 +264,9 @@ class Dialogflow {
       this.language = "en"});
 
   String _getUrl(query) {
+    String sessionByTime = DateTime.now().millisecondsSinceEpoch.toString();
     return "https://api.dialogflow.com/v1/query?v=$version&contexts=$query"
-        "&query=$query&lang=$language&sessionId=$sessionId&timezone=$timezone";
+        "&query=$query&lang=$language&sessionId=$sessionByTime&timezone=$timezone";
   }
 
   Future<AIResponse> sendQuery(query) async {
