@@ -1,4 +1,4 @@
-# flutter_dialogflow
+# Dialogflow package for Flutter apps.
 
 This package is modified from [VictorRancesCode's package](https://github.com/VictorRancesCode/flutter_dialogflow) for compatible with Dart 2.
 * [Example](https://github.com/ngoan98tv/flutter_dialogflow/tree/master/example)
