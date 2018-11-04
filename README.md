@@ -1,7 +1,7 @@
 # flutter_dialogflow
 
-A new Flutter package.
-* [Example](https://github.com/VictorRancesCode/flutter_dialogflow/tree/master/example)
+This package is modified from [VictorRancesCode's package](https://github.com/VictorRancesCode/flutter_dialogflow) for compatible with Dart 2.
+* [Example](https://github.com/ngoan98tv/flutter_dialogflow/tree/master/example)
 
 
 <p align="center">
