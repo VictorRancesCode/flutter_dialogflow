@@ -13,7 +13,7 @@ This package is modified from [VictorRancesCode's package](https://github.com/Vi
 * Add this to your package's pubspec.yaml file:
 ```
 dependencies:
-  flutter_dialogflow: "^0.1.0"
+  dialogflow: "^0.1.0"
 ```
 * You can install packages from the command line:
   with Flutter:
@@ -23,7 +23,7 @@ $ flutter packages get
 
 * Import it Now in your Dart code, you can use:
 ```
- import 'package:flutter_dialogflow/flutter_dialogflow.dart';
+ import 'package:dialogflow/dialogflow.dart';
 ```
 
 

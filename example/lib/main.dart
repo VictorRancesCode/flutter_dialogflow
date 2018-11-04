@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dialogflow/flutter_dialogflow.dart';
+import 'package:dialogflow/dialogflow.dart';
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {

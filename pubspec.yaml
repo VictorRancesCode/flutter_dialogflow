@@ -1,10 +1,10 @@
-name: flutter_dialogflow
-description: The flutter_dialogflow makes it easy to integrate dialogflow
+name: dialogflow
+description: This help to integrate Dialogflow into Flutter apps.
 version: 0.1.0
 authors:
   - Victor Alfonso Rodas Oña <victordevcode@gmail.com>
   - Trần Văn Ngoãn <ngoan98travinh@gmail.com>
-homepage: https://github.com/VictorRancesCode/flutter_dialogflow
+homepage: https://github.com/ngoan98tv/flutter_dialogflow
 
 dependencies:
   flutter:
