@@ -1,6 +1,6 @@
 name: dialogflow
-description: This help to integrate Dialogflow into Flutter apps.
-version: 0.1.0
+description: A package for an easy way to integrate Dialogflow into Flutter apps using Dialogflow API v1 authentication via token code.
+version: 0.1.1
 authors:
   - Victor Alfonso Rodas Oña <victordevcode@gmail.com>
   - Trần Văn Ngoãn <ngoan98travinh@gmail.com>

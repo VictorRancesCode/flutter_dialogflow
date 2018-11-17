@@ -5,7 +5,7 @@ This package is modified from [VictorRancesCode's package](https://github.com/Vi
 
 
 <p align="center">
-  <img src="image1.png" width="350"/>
+  <img src="https://raw.githubusercontent.com/ngoan98tv/flutter_dialogflow/master/image1.png" width="350"/>
 </p>
 
 ## Installation
