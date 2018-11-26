@@ -1,3 +1,7 @@
+## [0.1.1] - TODO: 26-11-2018.
+
+* Fix 'AUTHORIZATION' is deprecated and added dartdoc 
+
 ## [0.1.0] - TODO: 25-11-2018.
 
 * Support Dart 2.0 and added Support for Dialogflow V2

@@ -271,7 +271,7 @@ class Dialogflow {
   Future<AIResponse> sendQuery(query) async {
     var response = await http.get(
       _getUrl(query),
-      headers: {HttpHeaders.AUTHORIZATION: "Bearer " + token},
+      headers: {HttpHeaders.authorizationHeader: "Bearer " + token},
     );
     Map data = json.decode(response.body);
     AIResponse aiResponse = new AIResponse(data);

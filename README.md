@@ -1,4 +1,4 @@
-# flutter_dialogflow
+# Dialogflow v1 & v2 for Flutter apps.
 
 
 ![Dialogflow](https://github.com/VictorRancesCode/flutter_dialogflow/raw/master/dialogflow.png) 
@@ -16,7 +16,7 @@ A new Flutter package.
 * Add this to your package's pubspec.yaml file:
 ```
 dependencies:
-  flutter_dialogflow: "^0.1.0"
+  flutter_dialogflow: ^0.1.0
 ```
 * You can install packages from the command line:
   with Flutter:

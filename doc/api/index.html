@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="made with love by dartdoc 0.21.1">
+  <meta name="description" content="flutter_dialogflow API docs, for the Dart programming language.">
+  <title>flutter_dialogflow - Dart API docs</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link rel="stylesheet" href="static-assets/github.css">
+  <link rel="stylesheet" href="static-assets/styles.css">
+  <link rel="icon" href="static-assets/favicon.png">
+
+</head>
+
+<body>
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="https://github.com/VictorRancesCode/flutter_dialogflow">flutter_dialogflow package</a></li>
+  </ol>
+  <div class="self-name">flutter_dialogflow</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <h5><span class="package-name">flutter_dialogflow</span> <span class="package-kind">package</span></h5>
+    <ol>
+          <li class="section-title">Libraries</li>
+          <li><a href="utils_Language/utils_Language-library.html">Language</a></li>
+          <li><a href="v2_auth_google/v2_auth_google-library.html">auth_google</a></li>
+          <li><a href="v2_dialogflow_v2/v2_dialogflow_v2-library.html">dialogflow_v2</a></li>
+          <li><a href="flutter_dialogflow/flutter_dialogflow-library.html">flutter_dialogflow</a></li>
+          <li><a href="flutter_dialogflow/flutter_dialogflow-library.html">flutter_dialogflow</a></li>
+          <li><a href="v2_message/v2_message-library.html">message</a></li>
+    </ol>
+  </div>
+
+  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
+      <section class="desc markdown">
+        <h1 id="dialogflow-v1--v2-for-flutter-apps">Dialogflow v1 &amp; v2 for Flutter apps.</h1>
+<p><img alt="Dialogflow" src="https://github.com/VictorRancesCode/flutter_dialogflow/raw/master/dialogflow.png"> </p>
+<p>A new Flutter package.</p><ul><li><a href="https://github.com/VictorRancesCode/flutter_dialogflow/tree/master/example">Example</a></li></ul><p align="center">
+  <img src="image1.png" width="350">
+</p>
+<h2 id="installation">Installation</h2><ul><li>Add this to your package's pubspec.yaml file:</li></ul>
+<pre class="language-dart"><code>dependencies:
+  flutter_dialogflow: ^0.1.0
+</code></pre><ul><li>You can install packages from the command line:
+with Flutter:</li></ul>
+<pre class="language-dart"><code>$ flutter packages get
+</code></pre><ul><li>Dialogflow v1  Import it Now in your Dart code, you can use:</li></ul>
+<pre class="language-dart"><code> import 'package:flutter_dialogflow/flutter_dialogflow.dart';
+</code></pre><ul><li>Or Dialogflow v2  Import it Now in your Dart code, you can use:</li></ul>
+<pre class="language-dart"><code> import 'package:flutter_dialogflow/dialogflow_v2.dart';
+</code></pre>
+<h2 id="usage">Usage</h2>
+<h3 id="dialogflow-v2">Dialogflow v2</h3><ul><li>Dialogflow](<a href="https://dialogflow.com/">https://dialogflow.com/</a>) register and create new Agent</li><li>Project Setup and Authentication<ul><li>First of all, we need to create a Google Cloud Platform Project using <a href="https://console.cloud.google.com/">Console Google Cloud</a></li><li>Create or select an existing GCP project.</li><li>From the GCP console, go to APIs and Services and click on credentials. </li><li>Click on Create credentials and choose Service account key.</li><li>Select your service account from the dropdown, choose JSON and click Create. This will download the JSON key to your computer. Save it securely.</li><li>We downloaded a JSON file with all our data.</li></ul></li><li>In your project create folder assets(folder name recommended optional)</li><li>Move file json in your project in folder created</li><li>open file pubspec.yaml</li></ul>
+<pre class="language-dart"><code>flutter:
+  uses-material-design: true
+  assets:
+    - assets/your_file_downloaded_google_cloud.json
+</code></pre><ul><li>Import dialogflow_v2</li></ul>
+<pre class="language-dart"><code>import 'package:flutter_dialogflow/dialogflow_v2.dart';
+</code></pre><ul><li>Code</li></ul>
+<pre class="language-dart"><code>  AuthGoogle authGoogle = await AuthGoogle(fileJson: "Asset Your File Json").build();
+  // Select Language.ENGLISH or Language.SPANISH or others...
+  Dialogflow dialogflow =Dialogflow(authGoogle: authGoogle,language: Language.ENGLISH); 
+  AIResponse response = await dialogflow.detectIntent("Your Query");
+</code></pre><ul><li>Example</li></ul>
+<pre class="language-dart"><code>  AuthGoogle authGoogle = await AuthGoogle(fileJson: "assets/your_file_downloaded_google_cloud.json").build();
+  Dialogflow dialogflow = Dialogflow(authGoogle: authGoogle,language: Language.ENGLISH);
+  AIResponse response = await dialogflow.detectIntent("Hi!!!");
+  print(response.getMessage())
+</code></pre><ul><li>Or Get List Message type Card </li></ul>
+<pre class="language-dart"><code>Call function response.getListMessage() 
+response List&lt;dynamic&gt;
+example 
+new CardDialogflow(response.getListMessage()[0]).title
+Convert first item in CardDialogflow for worked easy
+CardDialogflow have
+- title
+- subtitle
+- imageUri
+- List buttons
+    - each button have text and postback
+</code></pre>
+<h3 id="dialogflow-v1">Dialogflow v1</h3><ul><li><a href="https://dialogflow.com/">Dialogflow</a> register and create new Agent</li><li>Copy Api key (Token)</li><li>Code</li></ul>
+<pre class="language-dart"><code>  Dialogflow dialogflow = Dialogflow(token: "Your Token");
+  AIResponse response = await dialogflow.sendQuery("Your Query");
+</code></pre><ul><li>Example</li></ul>
+<pre class="language-dart"><code>  void Response(query) async {
+    Dialogflow dialogflow = Dialogflow(token: "10178f9cb6cf12321asdf4aae75c87cd");
+    AIResponse response = await dialogflow.sendQuery(query);
+    print(response.getMessageResponse());
+  }
+</code></pre>
+<h2 id="getting-started">Getting Started</h2>
+<p>For help getting started with Flutter, view our online <a href="https://flutter.io/">documentation</a>.</p>
+<p>For help on editing package code, view the <a href="https://flutter.io/developing-packages/">documentation</a>.</p>
+      </section>
+      
+        <section class="summary">
+            <h2>Libraries</h2>
+          <dl>
+            <dt id="Language">
+              <span class="name"><a href="utils_Language/utils_Language-library.html">Language</a></span> 
+            </dt>
+            <dd>
+              
+            </dd>            <dt id="auth_google">
+              <span class="name"><a href="v2_auth_google/v2_auth_google-library.html">auth_google</a></span> 
+            </dt>
+            <dd>
+              
+            </dd>            <dt id="dialogflow_v2">
+              <span class="name"><a href="v2_dialogflow_v2/v2_dialogflow_v2-library.html">dialogflow_v2</a></span> 
+            </dt>
+            <dd>
+              
+            </dd>            <dt id="flutter_dialogflow">
+              <span class="name"><a href="flutter_dialogflow/flutter_dialogflow-library.html">flutter_dialogflow</a></span> 
+            </dt>
+            <dd>
+              
+            </dd>            <dt id="flutter_dialogflow">
+              <span class="name"><a href="flutter_dialogflow/flutter_dialogflow-library.html">flutter_dialogflow</a></span> 
+            </dt>
+            <dd>
+              
+            </dd>            <dt id="message">
+              <span class="name"><a href="v2_message/v2_message-library.html">message</a></span> 
+            </dt>
+            <dd>
+              
+            </dd>          </dl>
+        </section>
+
+  </div> <!-- /.main-content -->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    flutter_dialogflow 0.1.1
+  </span>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="static-assets/typeahead.bundle.min.js"></script>
+<script src="static-assets/highlight.pack.js"></script>
+<script src="static-assets/URI.js"></script>
+<script src="static-assets/script.js"></script>
+
+
+</body>
+
+</html>
