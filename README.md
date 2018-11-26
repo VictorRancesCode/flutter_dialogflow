@@ -1,5 +1,8 @@
 # flutter_dialogflow
 
+
+![Dialogflow](https://github.com/VictorRancesCode/flutter_dialogflow/raw/master/dialogflow.png) 
+
 A new Flutter package.
 * [Example](https://github.com/VictorRancesCode/flutter_dialogflow/tree/master/example)
 
@@ -13,7 +16,7 @@ A new Flutter package.
 * Add this to your package's pubspec.yaml file:
 ```
 dependencies:
-  flutter_dialogflow: "^0.0.1"
+  flutter_dialogflow: "^0.1.0"
 ```
 * You can install packages from the command line:
   with Flutter:
@@ -21,13 +24,73 @@ dependencies:
 $ flutter packages get
 ```
 
-* Import it Now in your Dart code, you can use:
+* Dialogflow v1  Import it Now in your Dart code, you can use:
 ```
  import 'package:flutter_dialogflow/flutter_dialogflow.dart';
 ```
-
+* Or Dialogflow v2  Import it Now in your Dart code, you can use:
+```
+ import 'package:flutter_dialogflow/dialogflow_v2.dart';
+```
 
 ## Usage
+
+### Dialogflow v2
+* Dialogflow](https://dialogflow.com/) register and create new Agent
+* Project Setup and Authentication
+    * First of all, we need to create a Google Cloud Platform Project using [Console Google Cloud](https://console.cloud.google.com/)
+    * Create or select an existing GCP project.
+    * From the GCP console, go to APIs and Services and click on credentials. 
+    * Click on Create credentials and choose Service account key.
+    * Select your service account from the dropdown, choose JSON and click Create. This will download the JSON key to your computer. Save it securely.
+    * We downloaded a JSON file with all our data.
+* In your project create folder assets(folder name recommended optional)
+* Move file json in your project in folder created
+* open file pubspec.yaml
+```
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/your_file_downloaded_google_cloud.json
+```
+* Import dialogflow_v2
+```
+import 'package:flutter_dialogflow/dialogflow_v2.dart';
+```
+
+* Code
+```
+  AuthGoogle authGoogle = await AuthGoogle(fileJson: "Asset Your File Json").build();
+  // Select Language.ENGLISH or Language.SPANISH or others...
+  Dialogflow dialogflow =Dialogflow(authGoogle: authGoogle,language: Language.ENGLISH); 
+  AIResponse response = await dialogflow.detectIntent("Your Query");
+```
+
+* Example
+```
+  AuthGoogle authGoogle = await AuthGoogle(fileJson: "assets/your_file_downloaded_google_cloud.json").build();
+  Dialogflow dialogflow = Dialogflow(authGoogle: authGoogle,language: Language.ENGLISH);
+  AIResponse response = await dialogflow.detectIntent("Hi!!!");
+  print(response.getMessage())
+```
+
+* Or Get List Message type Card 
+```
+Call function response.getListMessage() 
+response List<dynamic>
+example 
+new CardDialogflow(response.getListMessage()[0]).title
+Convert first item in CardDialogflow for worked easy
+CardDialogflow have
+- title
+- subtitle
+- imageUri
+- List buttons
+    - each button have text and postback
+```
+ 
+
+### Dialogflow v1
 * [Dialogflow](https://dialogflow.com/) register and create new Agent
 * Copy Api key (Token)
 * Code

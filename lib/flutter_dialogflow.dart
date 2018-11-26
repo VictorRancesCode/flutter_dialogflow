@@ -273,7 +273,7 @@ class Dialogflow {
       _getUrl(query),
       headers: {HttpHeaders.AUTHORIZATION: "Bearer " + token},
     );
-    Map data = JSON.decode(response.body);
+    Map data = json.decode(response.body);
     AIResponse aiResponse = new AIResponse(data);
     return aiResponse;
   }

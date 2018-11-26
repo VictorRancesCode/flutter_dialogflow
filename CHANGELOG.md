@@ -1,3 +1,8 @@
+## [0.1.0] - TODO: 25-11-2018.
+
+* Support Dart 2.0 and added Support for Dialogflow V2
+
+
 ## [0.0.1] - TODO: 27-05-2018.
 
 * The flutter_dialogflow makes it easy to integrate dialogflow
