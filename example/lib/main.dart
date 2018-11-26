@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dialogflow/flutter_dialogflow.dart';
+import 'package:dialogflow/dialogflow.dart';
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void Response(query) async {
     _textController.clear();
-    Dialogflow dialogflow =Dialogflow(token: "10178f9cb6cf44288a4af4aae75c87cd");
+    Dialogflow dialogflow =Dialogflow(token: "Your own token");
     AIResponse response = await dialogflow.sendQuery(query);
     ChatMessage message = new ChatMessage(
       text: response.getMessageResponse(),

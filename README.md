@@ -1,11 +1,11 @@
-# flutter_dialogflow
+# Dialogflow package for Flutter apps.
 
-A new Flutter package.
-* [Example](https://github.com/VictorRancesCode/flutter_dialogflow/tree/master/example)
+This package is modified from [VictorRancesCode's package](https://github.com/VictorRancesCode/flutter_dialogflow) for compatible with Dart 2.
+* [Example](https://github.com/ngoan98tv/flutter_dialogflow/tree/master/example)
 
 
 <p align="center">
-  <img src="image1.png" width="350"/>
+  <img src="https://raw.githubusercontent.com/ngoan98tv/flutter_dialogflow/master/image1.png" width="350"/>
 </p>
 
 ## Installation
@@ -13,7 +13,7 @@ A new Flutter package.
 * Add this to your package's pubspec.yaml file:
 ```
 dependencies:
-  flutter_dialogflow: "^0.0.1"
+  dialogflow: "^0.1.0"
 ```
 * You can install packages from the command line:
   with Flutter:
@@ -23,7 +23,7 @@ $ flutter packages get
 
 * Import it Now in your Dart code, you can use:
 ```
- import 'package:flutter_dialogflow/flutter_dialogflow.dart';
+ import 'package:dialogflow/dialogflow.dart';
 ```
 
 
@@ -38,7 +38,7 @@ $ flutter packages get
 * Example
 ```
   void Response(query) async {
-    Dialogflow dialogflow = Dialogflow(token: "10178f9cb6cf12321asdf4aae75c87cd");
+    Dialogflow dialogflow = Dialogflow(token: "Your token goes here");
     AIResponse response = await dialogflow.sendQuery(query);
     print(response.getMessageResponse());
   }
