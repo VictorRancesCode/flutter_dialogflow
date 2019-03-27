@@ -2,8 +2,8 @@ class ListTextDialogflow {
   List<String> listText = [];
 
   ListTextDialogflow(Map response) {
-    List<dynamic> list_text = response['text']['text'];
-    list_text.forEach((element)=> this.listText.add(element));
+    List<dynamic> listText = response['text']['text'];
+    listText.forEach((element)=> this.listText.add(element));
   }
 }
 
@@ -23,8 +23,8 @@ class QuickReplies {
 
   QuickReplies(Map response) {
     this.title = response['quickReplies']['title'];
-    List<dynamic> list_quickReplies = response['quickReplies']['quickReplies'];
-    list_quickReplies.forEach((element)=> this.quickReplies.add(element));
+    List<dynamic> listQuickReplies = response['quickReplies']['quickReplies'];
+    listQuickReplies.forEach((element)=> this.quickReplies.add(element));
   }
 }
 
@@ -48,9 +48,9 @@ class CardDialogflow {
     this.title = response['card']['title'];
     this.subtitle = response['card']['subtitle'];
     this.imageUri = response['card']['imageUri'];
-    List<dynamic> list_buttons = response['card']['buttons'];
-    for (int i = 0; i < list_buttons.length; i++) {
-      ButtonDialogflow b =new ButtonDialogflow(list_buttons[i]);
+    List<dynamic> listButtons = response['card']['buttons'];
+    for (int i = 0; i < listButtons.length; i++) {
+      ButtonDialogflow b =new ButtonDialogflow(listButtons[i]);
       buttons.add(b);
     }
   }

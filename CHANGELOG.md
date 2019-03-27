@@ -1,3 +1,7 @@
+## [0.1.2] - TODO: 27-03-2019.
+
+* Fix delete dartdoc
+
 ## [0.1.1] - TODO: 26-11-2018.
 
 * Fix 'AUTHORIZATION' is deprecated and added dartdoc 

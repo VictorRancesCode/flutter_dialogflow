@@ -1,6 +1,6 @@
 name: flutter_dialogflow
 description: Flutter package for makes it easy to integrate dialogflow and support dialogflow v2
-version: 0.1.1
+version: 0.1.2
 author: Victor Alfonso Rodas Oña <victordevcode@gmail.com>
 homepage: https://github.com/VictorRancesCode/flutter_dialogflow
 
@@ -11,6 +11,7 @@ dependencies:
   googleapis_auth: ^0.2.6
 
 dev_dependencies:
+  test:
   flutter_test:
     sdk: flutter
 
