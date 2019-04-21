@@ -111,7 +111,7 @@ class Dialogflow {
   const Dialogflow({@required this.authGoogle, this.language="en"});
 
   String _getUrl() {
-    return "https://dialogflow.googleapis.com/v2/projects/${authGoogle.getProjectId}/agent/sessions/${authGoogle.getSessionId}:detectIntent";
+    return "https://dialogflow.googleapis.com/v2beta1/projects/${authGoogle.getProjectId}/agent/sessions/${authGoogle.getSessionId}:detectIntent";
   }
 
   Future<AIResponse> detectIntent(String query) async {
