@@ -7,7 +7,7 @@ homepage: https://github.com/VictorRancesCode/flutter_dialogflow
 dependencies:
   flutter:
     sdk: flutter
-  http: ^0.11.3+16
+  http: ^0.12.0+2
   googleapis_auth: ^0.2.6
 
 dev_dependencies:
