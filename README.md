@@ -3,6 +3,8 @@
 
 ![Dialogflow](https://github.com/VictorRancesCode/flutter_dialogflow/raw/master/dialogflow.png) 
 
+### :heart: Star :heart: the repo to support the project. Thanks!
+
 A new Flutter package.
 * [Example](https://github.com/VictorRancesCode/flutter_dialogflow/tree/master/example)
 
@@ -11,6 +13,11 @@ A new Flutter package.
   <img src="image1.png" width="350"/>
 </p>
 
+## Awesome Tutorials
+* [Flutter and Bots (DialogFlow)](https://medium.com/flutterpub/flutter-and-bots-dialogflow-d490fc7e5aaf). By [Aseem Wangoo](https://medium.com/@aseemwangoo)
+* [Chatbot Inventory Tracking iOS & Android App with Flutter, DialogFlow, and GCP](https://medium.com/flutter-community/chatbot-inventory-tracking-ios-android-app-with-flutter-dialogflow-and-gcp-d7d903ce7f90). By [Alfian Losari](https://medium.com/@alfianlosari)
+
+Thanks for the tutorials!
 ## Installation
 
 * Add this to your package's pubspec.yaml file:
