@@ -95,3 +95,47 @@ class BasicCardDialogflow {
     this.buttons = response['basicCard']['buttons'];
   }
 }
+
+
+class ItemCarousel{
+  dynamic info;
+  String title;
+  String description;
+  ImageDialogflow image;
+  ItemCarousel(Map item){
+    this.info = item['info'];
+    this.title = item['title'];
+    this.description = item['description'];
+    this.image =new ImageDialogflow(item['image']);
+  }
+}
+
+class CarouselSelect {
+  List<ItemCarousel> items=[];
+  CarouselSelect(Map response){
+    List<dynamic> list = response['carouselSelect']['items'];
+    for(var i=0;i<list.length;i++){
+      items.add(new ItemCarousel(list[i]));
+    }
+  }
+}
+
+class TypeMessage{
+  String platform;
+  String type;
+  TypeMessage(Map message){
+    this.platform=message['platform'];
+    if(message.containsKey('card')){
+      this.type='card';
+    }
+    if(message.containsKey('basicCard')){
+      this.type='basicCard';
+    }
+    if(message.containsKey('simpleResponses')){
+      this.type='simpleResponses';
+    }
+    if(message.containsKey('carouselSelect')){
+      this.type='carouselSelect';
+    }
+  }
+}

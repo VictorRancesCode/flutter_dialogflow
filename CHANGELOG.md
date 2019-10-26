@@ -1,3 +1,7 @@
+## [0.1.3] - TODO: 27-03-2019.
+
+* Upgrade dependencies and added example
+
 ## [0.1.2] - TODO: 27-03-2019.
 
 * Fix delete dartdoc

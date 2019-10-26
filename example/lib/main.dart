@@ -2,6 +2,8 @@ import 'package:example/dialogflow_v1.dart';
 import 'package:example/dialogflow_v2.dart';
 import 'package:flutter/material.dart';
 
+import 'google_assistant.dart';
+
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
@@ -56,6 +58,18 @@ class _MyHomePageState extends State<MyHomePage> {
               );
             },
             child: Text("Dialogflow v2"),
+          ),
+        ),
+        new Container(
+          margin: EdgeInsets.all(10.0),
+          child: new RaisedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => GoogleAssistant()),
+              );
+            },
+            child: Text("GoogleAssistant"),
           ),
         )
       ]),

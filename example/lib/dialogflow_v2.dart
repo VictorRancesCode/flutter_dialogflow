@@ -47,7 +47,7 @@ class _HomePageDialogflowV2 extends State<HomePageDialogflowV2> {
     Dialogflow dialogflow =Dialogflow(authGoogle: authGoogle,language: Language.english);
     AIResponse response = await dialogflow.detectIntent(query);
     ChatMessage message = new ChatMessage(
-      text: response.getMessage() ?? new CardDialogflow(response.getListMessage()[0]).title,
+      text: response.getMessage() ?? new TypeMessage(response.getListMessage()[0]).platform,
       name: "Bot",
       type: false,
     );

@@ -41,6 +41,23 @@ $ flutter packages get
 ```
 
 ## Usage
+### Dialogflow v1
+* [Dialogflow](https://dialogflow.com/) register and create new Agent
+* Copy Api key (Token)
+* Code
+```
+  Dialogflow dialogflow = Dialogflow(token: "Your Token");
+  AIResponse response = await dialogflow.sendQuery("Your Query");
+```
+* Example
+```
+  void Response(query) async {
+    Dialogflow dialogflow = Dialogflow(token: "10178f9cb6cf12321asdf4aae75c87cd");
+    AIResponse response = await dialogflow.sendQuery(query);
+    print(response.getMessageResponse());
+  }
+```
+
 
 ### Dialogflow v2
 * Dialogflow](https://dialogflow.com/) register and create new Agent
@@ -92,34 +109,11 @@ CardDialogflow have
 - title
 - subtitle
 - imageUri
-- List buttons
+- List buttonss
     - each button have text and postback
 ```
- 
 
-### Dialogflow v1
-* [Dialogflow](https://dialogflow.com/) register and create new Agent
-* Copy Api key (Token)
-* Code
-```
-  Dialogflow dialogflow = Dialogflow(token: "Your Token");
-  AIResponse response = await dialogflow.sendQuery("Your Query");
-```
-* Example
-```
-  void Response(query) async {
-    Dialogflow dialogflow = Dialogflow(token: "10178f9cb6cf12321asdf4aae75c87cd");
-    AIResponse response = await dialogflow.sendQuery(query);
-    print(response.getMessageResponse());
-  }
-```
-
+![Demo](https://github.com/VictorRancesCode/flutter_dialogflow/raw/master/demo.jpg) 
 
 ### Dialogflow For Flutter Web
 Visit the repository: [Flutter Dialogflow Web](https://github.com/VictorRancesCode/flutter_dialogflow_web) 🚀
-
-## Getting Started
-
-For help getting started with Flutter, view our online [documentation](https://flutter.io/).
-
-For help on editing package code, view the [documentation](https://flutter.io/developing-packages/).
