@@ -125,7 +125,7 @@ Example:
   AIResponse response = await dialogflow.detectIntent("Hi!!!");
   print(response.getMessage())
 
-
+```
 
 ![Demo](https://github.com/VictorRancesCode/flutter_dialogflow/raw/master/demo.jpg) 
 
