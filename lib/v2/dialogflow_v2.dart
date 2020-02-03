@@ -79,6 +79,10 @@ class AIResponse {
     return _queryResult.fulfillmentText;
   }
 
+  String getWebhookStatusMessage() {
+    return _webhookStatus.message;
+  }
+
   List<dynamic> getListMessage() {
     return _queryResult.fulfillmentMessages;
   }
@@ -107,20 +111,32 @@ class AIResponse {
 class Dialogflow {
   final AuthGoogle authGoogle;
   final String language;
+  final String payload;
+  final bool resetContexts;
 
-  const Dialogflow({@required this.authGoogle, this.language="en"});
+  const Dialogflow({@required this.authGoogle, this.language="en", this.payload="", this.resetContexts=false});
 
   String _getUrl() {
     return "https://dialogflow.googleapis.com/v2/projects/${authGoogle.getProjectId}/agent/sessions/${authGoogle.getSessionId}:detectIntent";
   }
 
+
   Future<AIResponse> detectIntent(String query) async {
+
+    String queryParams = '{"resetContexts": ${this.resetContexts} }';
+
+    if (payload.isNotEmpty) {
+      queryParams = '{"resetContexts": ${this.resetContexts}, "payload": $payload}';
+    }
+
+    String body = '{"queryInput":{"text":{"text":"$query","language_code":"$language"}}, "queryParams": $queryParams}';
+
     var response = await authGoogle.post(_getUrl(),
         headers: {
           HttpHeaders.authorizationHeader: "Bearer ${authGoogle.getToken}"
         },
-        body:
-            "{'queryInput':{'text':{'text':'$query','language_code':'$language'}}}");
+        body: body);
+
     return AIResponse(body: json.decode(response.body));
   }
 }
