@@ -112,6 +112,20 @@ CardDialogflow have
 - List buttonss
     - each button have text and postback
 ```
+* Or Setup custom authentication (session)
+```
+Get a session id from your backend server after authentication.(Eg: OAuth Token)
+Pass the session id a named parameter 'sessionId' to AuthGoogle function.
+On the dialogflow fulfillment, access it inside `agent.session` (WebhookClient.session)
+and apply your session logic
+
+Example:
+  AuthGoogle authGoogle = await AuthGoogle(fileJson: "assets/your_file_downloaded_google_cloud.json", sessionId: "YOUR_CUSTOM_SESSION_ID").build();
+  Dialogflow dialogflow = Dialogflow(authGoogle: authGoogle,language: Language.ENGLISH);
+  AIResponse response = await dialogflow.detectIntent("Hi!!!");
+  print(response.getMessage())
+
+```
 
 ![Demo](https://github.com/VictorRancesCode/flutter_dialogflow/raw/master/demo.jpg) 
 
