@@ -3,7 +3,7 @@ class ListTextDialogflow {
 
   ListTextDialogflow(Map response) {
     List<dynamic> listText = response['text']['text'];
-    listText.forEach((element)=> this.listText.add(element));
+    listText.forEach((element) => this.listText.add(element));
   }
 }
 
@@ -19,12 +19,12 @@ class ImageDialogflow {
 
 class QuickReplies {
   String title;
-  List<String> quickReplies=[];
+  List<String> quickReplies = [];
 
   QuickReplies(Map response) {
     this.title = response['quickReplies']['title'];
     List<dynamic> listQuickReplies = response['quickReplies']['quickReplies'];
-    listQuickReplies.forEach((element)=> this.quickReplies.add(element));
+    listQuickReplies.forEach((element) => this.quickReplies.add(element));
   }
 }
 
@@ -42,7 +42,7 @@ class CardDialogflow {
   String title;
   String subtitle;
   String imageUri;
-  List<ButtonDialogflow> buttons=[];
+  List<ButtonDialogflow> buttons = [];
 
   CardDialogflow(Map response) {
     this.title = response['card']['title'];
@@ -50,7 +50,7 @@ class CardDialogflow {
     this.imageUri = response['card']['imageUri'];
     List<dynamic> listButtons = response['card']['buttons'];
     for (int i = 0; i < listButtons.length; i++) {
-      ButtonDialogflow b =new ButtonDialogflow(listButtons[i]);
+      ButtonDialogflow b = new ButtonDialogflow(listButtons[i]);
       buttons.add(b);
     }
   }
@@ -61,7 +61,7 @@ class SimpleResponse {
   String ssml;
   String displayText;
 
-  SimpleResponse(Map response){
+  SimpleResponse(Map response) {
     this.textToSpeech = response['textToSpeech'];
     this.ssml = response['ssml'];
     this.displayText = response['displayText'];
@@ -69,12 +69,13 @@ class SimpleResponse {
 }
 
 class SimpleResponses {
-  List<SimpleResponse> simpleResponses =[];
+  List<SimpleResponse> simpleResponses = [];
 
-  SimpleResponses(Map response){
-    List<dynamic> listSimpleResponse = response['simpleResponses']['simpleResponses'];
+  SimpleResponses(Map response) {
+    List<dynamic> listSimpleResponse =
+        response['simpleResponses']['simpleResponses'];
     for (int i = 0; i < listSimpleResponse.length; i++) {
-      SimpleResponse b =new SimpleResponse(listSimpleResponse[i]);
+      SimpleResponse b = new SimpleResponse(listSimpleResponse[i]);
       simpleResponses.add(b);
     }
   }
@@ -91,51 +92,92 @@ class BasicCardDialogflow {
     this.title = response['basicCard']['title'];
     this.subtitle = response['basicCard']['subtitle'];
     this.formattedText = response['basicCard']['formattedText'];
-    this.image = new ImageDialogflow(response['basicCard']['image']) ;
+    this.image = new ImageDialogflow(response['basicCard']['image']);
     this.buttons = response['basicCard']['buttons'];
   }
 }
 
-
-class ItemCarousel{
+class ItemCarousel {
   dynamic info;
   String title;
   String description;
   ImageDialogflow image;
-  ItemCarousel(Map item){
+  ItemCarousel(Map item) {
     this.info = item['info'];
     this.title = item['title'];
     this.description = item['description'];
-    this.image =new ImageDialogflow(item['image']);
+    this.image = new ImageDialogflow(item['image']);
   }
 }
 
 class CarouselSelect {
-  List<ItemCarousel> items=[];
-  CarouselSelect(Map response){
+  List<ItemCarousel> items = [];
+  CarouselSelect(Map response) {
     List<dynamic> list = response['carouselSelect']['items'];
-    for(var i=0;i<list.length;i++){
+    for (var i = 0; i < list.length; i++) {
       items.add(new ItemCarousel(list[i]));
     }
   }
 }
 
-class TypeMessage{
-  String platform;
-  String type;
-  TypeMessage(Map message){
-    this.platform=message['platform'];
-    if(message.containsKey('card')){
-      this.type='card';
-    }
-    if(message.containsKey('basicCard')){
-      this.type='basicCard';
-    }
-    if(message.containsKey('simpleResponses')){
-      this.type='simpleResponses';
-    }
-    if(message.containsKey('carouselSelect')){
-      this.type='carouselSelect';
+class MessageType {
+  final String value;
+
+  const MessageType._(this.value);
+
+  static const card = MessageType._('card');
+  static const basicCard = MessageType._('basicCard');
+  static const simpleResponses = MessageType._('simpleResponses');
+  static const carouselSelect = MessageType._('carouselSelect');
+  static const text = MessageType._("text");
+  static const map = MessageType._("map");
+}
+
+class TypeMessage {
+  final String platform;
+  final MessageType type;
+  final Object value;
+
+  TypeMessage(this.platform, this.type, this.value);
+
+  static TypeMessage fromJson(Map data) {
+    final platform = data['platform'] ?? "";
+    if (data.containsKey('card')) {
+      return TypeMessage(
+        platform,
+        MessageType.card,
+        CardDialogflow(data),
+      );
+    } else if (data.containsKey('basicCard')) {
+      return TypeMessage(
+        platform,
+        MessageType.basicCard,
+        BasicCardDialogflow(data),
+      );
+    } else if (data.containsKey('simpleResponses')) {
+      return TypeMessage(
+        platform,
+        MessageType.simpleResponses,
+        SimpleResponses(data),
+      );
+    } else if (data.containsKey('carouselSelect')) {
+      return TypeMessage(
+        platform,
+        MessageType.carouselSelect,
+        CarouselSelect(data),
+      );
+    } else if (data.containsKey("text")) {
+      return TypeMessage(
+        platform,
+        MessageType.text,
+        ListTextDialogflow(data),
+      );
+    } else {
+      return TypeMessage(
+        platform,
+        MessageType.map,
+        data,
+      );
     }
   }
 }
