@@ -45,7 +45,7 @@ class _GoogleAssistant extends State<GoogleAssistant> {
   }
 
   dynamic getWidgetMessage(message) {
-    TypeMessage ms = TypeMessage(message);
+    TypeMessage ms = TypeMessage.fromJson(message);
     if (ms.platform == "ACTIONS_ON_GOOGLE") {
       if (ms.type == "simpleResponses") {
         return SimpleMessage(
