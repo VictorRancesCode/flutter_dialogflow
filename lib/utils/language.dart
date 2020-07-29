@@ -90,9 +90,9 @@ class Language {
   static String ITALIAN = italian;
 
   /* Japanese */
-  static String japonese = "ja";
-  @Deprecated("Use japonese")
-  static String JAPANESE = japonese;
+  static String japanese = "ja";
+  @Deprecated("Use japanese")
+  static String JAPANESE = japanese;
 
   /* Korean */
   static String korean = "ko";
